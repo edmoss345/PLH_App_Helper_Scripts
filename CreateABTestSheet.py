@@ -8,7 +8,7 @@
 # import packages required to run the code
 import json
 import pandas as pd
-# import easygui as eg       # package only required if you want to use the file picker in line 14
+# import easygui as eg       # package only required if you want to use the file picker in line 14, deactivated
 
 # Activate line below if you want to use a file picker to select JSON file
 # File = eg.fileopenbox()
