@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CreateABTestingSheet.iml" filepath="$PROJECT_DIR$/.idea/CreateABTestingSheet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rapidpro_abtesting/.idea/rapidpro_abtesting.iml" filepath="$PROJECT_DIR$/../rapidpro_abtesting/.idea/rapidpro_abtesting.iml" />
     </modules>
   </component>
 </project>
