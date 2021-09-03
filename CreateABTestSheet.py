@@ -22,7 +22,6 @@ import pandas as pd
 File = r"C:\Users\edmun\OneDrive - EEM Engineering Ltd\IDEMS\GG-plh-international-flavour.json"
 
 """Input variables, based on info required AB testing sheet"""
-TypeofEdit = "replace_bit_of_text"
 Change = "child or teen"        # this is the bit of text that we are going to search for in the JSON file
 ConditionVariable = "@fields.age_group_for_tips"        # this field is checked against the Op#Condition fields
 Op1Condition = "child"
@@ -33,6 +32,7 @@ Op2ConditionType = "has_any_word"
 Op2Category = "teen"
 
 """Setup two empty lists, these will be populated when we find matches to the 'Change' text"""
+type_of_edit = []   # type of edit used in the AB sheet
 flow_match = []     # name of the flow where we have found a match to the 'Change' text
 text_match = []     # full paragraph which contains the 'Change' text
 
@@ -55,6 +55,7 @@ for i in range(FlowCount):      # Loop through all flows in JSON object
             try:
                 samplestring = jsonObject['flows'][i]['nodes'][j]['actions'][k]['text']     # Extract 'text' contents
                 if Change in samplestring:
+                    type_of_edit.append("replace_bit_of_text")
                     text_match.append(samplestring)     # If we have a match, record the samplestring
                     flow_match.append(jsonObject['flows'][i]['name'])       # If we have a match, record the flow name
             except:
@@ -67,6 +68,7 @@ for i in range(FlowCount):      # Loop through all flows in JSON object
                 for m in range(QuickReplyCount):  # Loop through all of the quick replies
                     samplestring = jsonObject['flows'][i]['nodes'][j]['actions'][k]['quick_replies'][m]     # Extract 'quick replies' contents
                     if Change in samplestring:
+                        type_of_edit.append("replace_quick_replies")
                         text_match.append(samplestring)     # If we have a match, record the samplestring
                         flow_match.append(jsonObject['flows'][i]['name'])       # If we have a match, record the flow name
             except:
@@ -81,6 +83,7 @@ for i in range(FlowCount):      # Loop through all flows in JSON object
                     for p in range(ArgumentCount):  # Loop through all the arguments in a case
                         samplestring = jsonObject['flows'][i]['nodes'][j]['router']['cases'][n]['arguments'][p]
                         if Change in samplestring:
+                            type_of_edit.append("replace_arguments")
                             text_match.append(samplestring)     # If we have a match, record the samplestring
                             flow_match.append(jsonObject['flows'][i]['name'])       # If we have a match, record the flow name
                 except:
@@ -95,6 +98,7 @@ for i in range(FlowCount):      # Loop through all flows in JSON object
                 try:
                     samplestring = jsonObject['flows'][i]['nodes'][j]['router']['categories'][q]['name']
                     if Change in samplestring:
+                        type_of_edit.append("replace_categories")
                         text_match.append(samplestring)     # If we have a match, record the samplestring
                         flow_match.append(jsonObject['flows'][i]['name'])       # If we have a match, record the flow name
                 except:
@@ -102,9 +106,8 @@ for i in range(FlowCount):      # Loop through all flows in JSON object
         except:
             continue
 
-OutputData = pd.DataFrame(zip(flow_match, text_match), columns=['flow_id', 'node_identifier'])
+OutputData = pd.DataFrame(zip(type_of_edit, flow_match, text_match), columns=['type_of_edit', 'flow_id', 'node_identifier'])
 
-OutputData.insert(0, "type_of_edit", TypeofEdit)
 OutputData.insert(2, "original_row_id", "")
 OutputData.insert(4, "change", Change)
 OutputData.insert(5, "condition_var", ConditionVariable)
