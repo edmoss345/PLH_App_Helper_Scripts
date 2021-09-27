@@ -21,7 +21,9 @@ for (const flow of object.flows) {
                 if(action.quick_replies.length > 0){
                     // Quick replies found, store in an array to then work with
                     const arr = action.quick_replies;
+                    // Process quick replies and remove duplicate words
                     const UniqueQuickReplies = CreateUniqueQuickReplies(arr)
+                    // Print original and new array to console to see the difference
                     console.log(arr)
                     console.log(UniqueQuickReplies);              
                     }
