@@ -1,4 +1,8 @@
- 
+// This script is used to look at quick replies within the PLH app
+// As part of the App Build process, we sometime need to convert quick replies to text inputs
+// In this instance we need to reformat the quick replies so that there are no duplicate words between them
+// This script takes in a JSON file exported from RapidPro, extracts the quickreplies, then creates a new set of quick replies with no duplicate words
+
 // Include fs module used to import a JSON file
 const { debug } = require('console');
 var fs = require('fs');
@@ -17,8 +21,9 @@ for (const flow of object.flows) {
                 if(action.quick_replies.length > 0){
                     // Quick replies found, store in an array to then work with
                     const arr = action.quick_replies;
+                    const UniqueQuickReplies = CreateUniqueQuickReplies(arr)
                     console.log(arr)
-                    console.log(CreateUniqueQuickReplies(arr));              
+                    console.log(UniqueQuickReplies);              
                     }
                 }            
             catch(err) {
