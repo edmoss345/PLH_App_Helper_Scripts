@@ -7,7 +7,7 @@ The script looks for text in the following places
    flows>nodes>actions>quick replies
    flows>nodes>router>cases>arguments
    flows>nodes>router>categories>name
-The output is an excel sheet which can be copied directly into the AB testing master sheet 22
+The output is an excel sheet which can be copied directly into the AB testing master sheet (branch test)
 """
 
 """import packages required to run the code"""
