@@ -8,7 +8,7 @@ const { debug } = require('console');
 var fs = require('fs');
    
 // Calling the readFileSync() method to read json file
-var json_string = fs.readFileSync('./em-playground.json').toString();
+var json_string = fs.readFileSync(__dirname + '/em-playground.json').toString();
 // Convert to javascript object to work with
 var object = JSON.parse(json_string);
         

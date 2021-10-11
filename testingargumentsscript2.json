@@ -1,0 +1,1028 @@
+{
+  "version": "13",
+  "site": "https://rapidpro.idems.international",
+  "flows": [
+    {
+      "_ui": {
+        "nodes": {
+          "61fd5c18-bc91-476d-93d4-00ac6460d9f3": {
+            "position": {
+              "left": 820,
+              "top": 0
+            },
+            "type": "execute_actions"
+          },
+          "9f95d8e3-1d22-46a7-bb42-dd3783189269": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 700,
+              "top": 240
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "e743fb78-057a-4237-85d2-41a103f60be1": {
+            "position": {
+              "left": 540,
+              "top": 460
+            },
+            "type": "execute_actions"
+          },
+          "fccfd788-f5ed-43b4-ba62-321e8c9625d6": {
+            "position": {
+              "left": 660,
+              "top": 580
+            },
+            "type": "execute_actions"
+          },
+          "203edbc3-c7fd-4c21-a7ba-308b484df4da": {
+            "position": {
+              "left": 760,
+              "top": 680
+            },
+            "type": "execute_actions"
+          },
+          "d0df51b3-5e3f-4e33-af31-386df2966115": {
+            "position": {
+              "left": 880,
+              "top": 780
+            },
+            "type": "execute_actions"
+          },
+          "c7990124-15b7-4d73-9e3b-531772f78460": {
+            "position": {
+              "left": 1000,
+              "top": 500
+            },
+            "type": "execute_actions"
+          }
+        }
+      },
+      "expire_after_minutes": 10080,
+      "language": "base",
+      "localization": {},
+      "metadata": {
+        "revision": 1
+      },
+      "name": "TestingCommonArguments3",
+      "nodes": [
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "text": "What is your favourite TV show?",
+              "type": "send_msg",
+              "quick_replies": [
+                "The Office",
+                "The Simpsons",
+                "Friends",
+                "Game of Thrones",
+                "House of Cards"
+              ],
+              "uuid": "806ba8b5-067a-4a0e-b070-33fa741b9651"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": "9f95d8e3-1d22-46a7-bb42-dd3783189269",
+              "uuid": "9d04863f-1400-4915-b129-7421fedf77a1"
+            }
+          ],
+          "uuid": "61fd5c18-bc91-476d-93d4-00ac6460d9f3"
+        },
+        {
+          "uuid": "9f95d8e3-1d22-46a7-bb42-dd3783189269",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "c337e4ac-fb98-4b48-80ab-4c15e0a17821",
+            "cases": [
+              {
+                "arguments": [
+                  "The Office"
+                ],
+                "type": "has_any_word",
+                "uuid": "67f8f244-ef2f-497f-9d7b-bc68962d26cb",
+                "category_uuid": "e4b95ba6-a199-408e-91a4-1a9883fa6b2c"
+              },
+              {
+                "arguments": [
+                  "The Simpsons"
+                ],
+                "type": "has_any_word",
+                "uuid": "a97df0d4-5301-432b-903b-67e0b452700f",
+                "category_uuid": "a533cad2-4aff-491d-988d-a827e083367f"
+              },
+              {
+                "arguments": [
+                  "Friends"
+                ],
+                "type": "has_any_word",
+                "uuid": "8ca777ec-616d-4711-a980-3f9f2260e3b4",
+                "category_uuid": "2dc8e2ea-4633-455d-ba67-08619194f94b"
+              },
+              {
+                "arguments": [
+                  "Game of Thrones"
+                ],
+                "type": "has_any_word",
+                "uuid": "2ec6f5e7-d77b-496e-8798-4d13a14df807",
+                "category_uuid": "026cf3dd-e690-469d-9fb4-b275b04cb16f"
+              },
+              {
+                "arguments": [
+                  "House of Cards"
+                ],
+                "type": "has_any_word",
+                "uuid": "a9b8a249-b4b5-41a2-9a76-9ad452bef241",
+                "category_uuid": "da4c3c59-6bfa-48d9-b865-fe8252c62a18"
+              }
+            ],
+            "categories": [
+              {
+                "exit_uuid": "4113f7ef-3c8d-401e-b74d-818612a306c5",
+                "name": "Show 1",
+                "uuid": "e4b95ba6-a199-408e-91a4-1a9883fa6b2c"
+              },
+              {
+                "exit_uuid": "8581ce8c-9e95-49bf-974b-894e3bab83ad",
+                "name": "Show 2",
+                "uuid": "a533cad2-4aff-491d-988d-a827e083367f"
+              },
+              {
+                "exit_uuid": "9a550fbe-bafa-44f6-9335-e827c7575360",
+                "name": "Show 3",
+                "uuid": "2dc8e2ea-4633-455d-ba67-08619194f94b"
+              },
+              {
+                "exit_uuid": "681a5d4c-4dbb-47ef-9274-1832768ccbdc",
+                "name": "Show 4",
+                "uuid": "026cf3dd-e690-469d-9fb4-b275b04cb16f"
+              },
+              {
+                "uuid": "da4c3c59-6bfa-48d9-b865-fe8252c62a18",
+                "name": "Show 5",
+                "exit_uuid": "b0b892e4-7004-479a-b982-88414d30a1f1"
+              },
+              {
+                "exit_uuid": "766297b6-04f8-47bb-b256-42886a47a914",
+                "name": "Other",
+                "uuid": "c337e4ac-fb98-4b48-80ab-4c15e0a17821"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "Result 1"
+          },
+          "exits": [
+            {
+              "destination_uuid": "e743fb78-057a-4237-85d2-41a103f60be1",
+              "uuid": "4113f7ef-3c8d-401e-b74d-818612a306c5"
+            },
+            {
+              "destination_uuid": "fccfd788-f5ed-43b4-ba62-321e8c9625d6",
+              "uuid": "8581ce8c-9e95-49bf-974b-894e3bab83ad"
+            },
+            {
+              "destination_uuid": "203edbc3-c7fd-4c21-a7ba-308b484df4da",
+              "uuid": "9a550fbe-bafa-44f6-9335-e827c7575360"
+            },
+            {
+              "destination_uuid": "d0df51b3-5e3f-4e33-af31-386df2966115",
+              "uuid": "681a5d4c-4dbb-47ef-9274-1832768ccbdc"
+            },
+            {
+              "uuid": "b0b892e4-7004-479a-b982-88414d30a1f1",
+              "destination_uuid": "c7990124-15b7-4d73-9e3b-531772f78460"
+            },
+            {
+              "destination_uuid": "61fd5c18-bc91-476d-93d4-00ac6460d9f3",
+              "uuid": "766297b6-04f8-47bb-b256-42886a47a914"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 1",
+              "type": "send_msg",
+              "uuid": "378d8e36-7ad2-4f89-aa3f-2d2649617472"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "15d7d9f2-79e9-41e7-ae20-77facac5f466"
+            }
+          ],
+          "uuid": "e743fb78-057a-4237-85d2-41a103f60be1"
+        },
+        {
+          "uuid": "c7990124-15b7-4d73-9e3b-531772f78460",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 5",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "6657b3f6-a20b-43dd-bfb1-204f32936b37"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "cd5d8f80-4c08-4a80-b387-8ccb528980f3",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 2",
+              "type": "send_msg",
+              "uuid": "12ce687e-ad6d-4427-9f56-4c09298c73d9"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "a2be94e7-1a0b-4d6f-ad31-dc8f69470dfc"
+            }
+          ],
+          "uuid": "fccfd788-f5ed-43b4-ba62-321e8c9625d6"
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 3",
+              "type": "send_msg",
+              "uuid": "e3b5dc6d-db89-427e-8e1a-d36433b63028"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "c9075da1-47a7-448f-8675-b1e152419ca3"
+            }
+          ],
+          "uuid": "203edbc3-c7fd-4c21-a7ba-308b484df4da"
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 4",
+              "type": "send_msg",
+              "uuid": "6799e37e-1937-4ebc-892b-ab5cfd957251"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "8cc6600d-2eb1-4db9-b903-59ed8fd63d3a"
+            }
+          ],
+          "uuid": "d0df51b3-5e3f-4e33-af31-386df2966115"
+        }
+      ],
+      "spec_version": "13.1.0",
+      "type": "messaging",
+      "uuid": "0a555e23-4a2d-47b0-a07f-a95263a640f2",
+      "revision": 8
+    },
+    {
+      "name": "TestingCommonArguments1",
+      "uuid": "a59453fc-cbaf-4667-b0e2-e63bd61fdaab",
+      "spec_version": "13.1.0",
+      "language": "base",
+      "type": "messaging",
+      "nodes": [
+        {
+          "uuid": "275d70a7-27fc-40ef-a24c-fa0a9efd1bff",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "What is your favourite food?",
+              "type": "send_msg",
+              "quick_replies": [
+                "chicken pie",
+                "chicken curry",
+                "beef curry",
+                "chicken noodles",
+                "BBQ chicken pizza",
+                "stir fry"
+              ],
+              "uuid": "4c49d5a7-7b40-4edb-ba24-ea4cab233ad3"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "e0beb523-0045-4b6a-8aca-4503b0369cf2",
+              "destination_uuid": "6ba844bd-512e-4bb3-97bd-3e3d16460742"
+            }
+          ]
+        },
+        {
+          "uuid": "6ba844bd-512e-4bb3-97bd-3e3d16460742",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "56a92a50-be19-41f1-917e-d42318fb188f",
+            "cases": [
+              {
+                "arguments": [
+                  "chicken pie"
+                ],
+                "type": "has_any_word",
+                "uuid": "5e09793b-8fd3-4b8b-bd17-0b84e92ae66c",
+                "category_uuid": "84115719-379c-4b79-a2e0-6a269905150d"
+              },
+              {
+                "arguments": [
+                  "chicken curry"
+                ],
+                "type": "has_any_word",
+                "uuid": "717db835-467c-4472-b19e-400a1a50f0f7",
+                "category_uuid": "48e3f5a3-6f26-49f6-9c03-db57410a828f"
+              },
+              {
+                "arguments": [
+                  "beef curry"
+                ],
+                "type": "has_any_word",
+                "uuid": "87c528fe-0874-49b7-9b20-a546132d820b",
+                "category_uuid": "9b4c7416-0f52-49b9-b031-46d46aece73e"
+              },
+              {
+                "arguments": [
+                  "chicken noodles"
+                ],
+                "type": "has_any_word",
+                "uuid": "d26c1bff-7e0a-4443-a307-bbd8dede93a8",
+                "category_uuid": "93554553-087c-4425-aa31-6c3b213b8d7b"
+              },
+              {
+                "arguments": [
+                  "BBQ chicken pizza"
+                ],
+                "type": "has_any_word",
+                "uuid": "23c43642-8d95-47d5-bbe9-8abac59bf7b8",
+                "category_uuid": "aca442b4-3f49-41ae-8a67-932cd1c7a372"
+              },
+              {
+                "arguments": [
+                  "stir fry"
+                ],
+                "type": "has_any_word",
+                "uuid": "b9b4d7d6-ec33-4c41-96d7-254184a5f11c",
+                "category_uuid": "7132c61a-1a23-4be9-84d5-cef496eb2fb3"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "84115719-379c-4b79-a2e0-6a269905150d",
+                "name": "Meal 1",
+                "exit_uuid": "523f8307-8fc3-40c2-b810-9305bd2dbe71"
+              },
+              {
+                "uuid": "48e3f5a3-6f26-49f6-9c03-db57410a828f",
+                "name": "Meal 2",
+                "exit_uuid": "253df6d5-c572-4e5e-91f7-f811799ad7c9"
+              },
+              {
+                "uuid": "9b4c7416-0f52-49b9-b031-46d46aece73e",
+                "name": "Meal 3",
+                "exit_uuid": "329b24d1-6b4a-492a-8c0c-90922dd9f2f2"
+              },
+              {
+                "uuid": "93554553-087c-4425-aa31-6c3b213b8d7b",
+                "name": "Meal 4",
+                "exit_uuid": "278e8fcb-5bc5-4426-8162-229365736745"
+              },
+              {
+                "uuid": "aca442b4-3f49-41ae-8a67-932cd1c7a372",
+                "name": "Meal 5",
+                "exit_uuid": "f692c28e-3bd9-4bbe-919b-630003fa214d"
+              },
+              {
+                "uuid": "7132c61a-1a23-4be9-84d5-cef496eb2fb3",
+                "name": "Meal 6",
+                "exit_uuid": "b4a3f7be-d29b-4086-8c02-c2333a55310b"
+              },
+              {
+                "uuid": "56a92a50-be19-41f1-917e-d42318fb188f",
+                "name": "Other",
+                "exit_uuid": "26dac4f1-297f-4f21-938b-6be9921bb8e0"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "Result 1"
+          },
+          "exits": [
+            {
+              "uuid": "523f8307-8fc3-40c2-b810-9305bd2dbe71",
+              "destination_uuid": "ebcd0efd-2d01-4eac-a3b9-1c852a5a1075"
+            },
+            {
+              "uuid": "253df6d5-c572-4e5e-91f7-f811799ad7c9",
+              "destination_uuid": "ac0bc834-37af-48fa-bafe-11b150dbbda9"
+            },
+            {
+              "uuid": "329b24d1-6b4a-492a-8c0c-90922dd9f2f2",
+              "destination_uuid": "8b79e3d7-01f8-47b5-a1f2-b017e0b76e8f"
+            },
+            {
+              "uuid": "278e8fcb-5bc5-4426-8162-229365736745",
+              "destination_uuid": "a1252d3a-360d-47c9-be32-0b0d8193ef9d"
+            },
+            {
+              "uuid": "f692c28e-3bd9-4bbe-919b-630003fa214d",
+              "destination_uuid": "92435cb2-d813-4976-b1eb-2063a33aa393"
+            },
+            {
+              "uuid": "b4a3f7be-d29b-4086-8c02-c2333a55310b",
+              "destination_uuid": "74c6882c-5d5f-4e6e-bfa1-94d7d66f9883"
+            },
+            {
+              "uuid": "26dac4f1-297f-4f21-938b-6be9921bb8e0",
+              "destination_uuid": "275d70a7-27fc-40ef-a24c-fa0a9efd1bff"
+            }
+          ]
+        },
+        {
+          "uuid": "74c6882c-5d5f-4e6e-bfa1-94d7d66f9883",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "What type of stir fry?",
+              "type": "send_msg",
+              "quick_replies": [
+                "Chicken",
+                "Chicken and vegetable",
+                "Tofu",
+                "Tofu and vegetable",
+                "Vegetable only"
+              ],
+              "uuid": "68694c22-9a1e-4aaf-9264-6dd8cabc3643"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "5276b84e-c9b8-4145-a781-2326a079aea4",
+              "destination_uuid": "4b36f923-41e6-4763-baa5-336ee4df5919"
+            }
+          ]
+        },
+        {
+          "uuid": "ebcd0efd-2d01-4eac-a3b9-1c852a5a1075",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 1",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "44dca0bb-4470-417e-8141-17f403dc58a6"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "33292321-d940-48ac-a221-f9bb8fca7465",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "uuid": "ac0bc834-37af-48fa-bafe-11b150dbbda9",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 2",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "c9dc7c1a-2ae0-45a8-99b9-d9a3f265b0dd"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "62545e19-d8f7-4ba6-a2e0-dcb6a178ad60",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "uuid": "4b36f923-41e6-4763-baa5-336ee4df5919",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "2a6759d3-250e-439a-bf8b-b8cbacf884c4",
+            "cases": [
+              {
+                "arguments": [
+                  "Chicken"
+                ],
+                "type": "has_any_word",
+                "uuid": "b7b90d45-e5c9-4769-9206-4c38a7f81116",
+                "category_uuid": "77225f68-6863-4cda-9e0b-9020fe78a3c8"
+              },
+              {
+                "arguments": [
+                  "Chicken and vegetable"
+                ],
+                "type": "has_any_word",
+                "uuid": "8a7d423b-3e90-4568-b7d6-f8db80949d1f",
+                "category_uuid": "9ec7fe22-59ce-4eb7-a949-33e5aaed00f5"
+              },
+              {
+                "arguments": [
+                  "Tofu"
+                ],
+                "type": "has_any_word",
+                "uuid": "886d87db-9f85-44b1-9ad0-ac5fc21e0cc6",
+                "category_uuid": "f5c46bba-8b36-4270-ae1f-911f0c4e6a41"
+              },
+              {
+                "arguments": [
+                  "Tofu and vegetable"
+                ],
+                "type": "has_any_word",
+                "uuid": "5f927520-ad01-4222-85fc-838b778e79e8",
+                "category_uuid": "c259c48f-1422-41d2-be42-74419f6c8033"
+              },
+              {
+                "arguments": [
+                  "Vegetable only"
+                ],
+                "type": "has_any_word",
+                "uuid": "15649691-e6c4-454e-886f-6688b86e2ff4",
+                "category_uuid": "5a1eae54-be76-4cf6-b84d-78e01185cc6e"
+              }
+            ],
+            "categories": [
+              {
+                "uuid": "77225f68-6863-4cda-9e0b-9020fe78a3c8",
+                "name": "Stir fry 1",
+                "exit_uuid": "d6f2db43-f374-4054-b958-fcb2166eb175"
+              },
+              {
+                "uuid": "9ec7fe22-59ce-4eb7-a949-33e5aaed00f5",
+                "name": "Stir fry 2",
+                "exit_uuid": "53c3119d-2f46-40fd-92ca-a1a782d321f6"
+              },
+              {
+                "uuid": "f5c46bba-8b36-4270-ae1f-911f0c4e6a41",
+                "name": "Stir fry 3",
+                "exit_uuid": "81773695-5424-4bc9-b6da-9c1095954593"
+              },
+              {
+                "uuid": "c259c48f-1422-41d2-be42-74419f6c8033",
+                "name": "Stir fry 4",
+                "exit_uuid": "a4c9a076-0db4-4922-a824-6709939155c0"
+              },
+              {
+                "uuid": "5a1eae54-be76-4cf6-b84d-78e01185cc6e",
+                "name": "Stir fry 5",
+                "exit_uuid": "3f959221-f66c-49d7-9570-84bf212955ef"
+              },
+              {
+                "uuid": "2a6759d3-250e-439a-bf8b-b8cbacf884c4",
+                "name": "Other",
+                "exit_uuid": "1b8e7a6c-86ad-44e1-a270-786633b91e08"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "Result 2"
+          },
+          "exits": [
+            {
+              "uuid": "d6f2db43-f374-4054-b958-fcb2166eb175"
+            },
+            {
+              "uuid": "53c3119d-2f46-40fd-92ca-a1a782d321f6"
+            },
+            {
+              "uuid": "81773695-5424-4bc9-b6da-9c1095954593"
+            },
+            {
+              "uuid": "a4c9a076-0db4-4922-a824-6709939155c0"
+            },
+            {
+              "uuid": "3f959221-f66c-49d7-9570-84bf212955ef"
+            },
+            {
+              "uuid": "1b8e7a6c-86ad-44e1-a270-786633b91e08",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "uuid": "8b79e3d7-01f8-47b5-a1f2-b017e0b76e8f",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 3",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "94f3d49a-cf5a-4a66-b740-99ada32f584b"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "bb9bd810-67b4-4298-b590-01d98dea46fb",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "uuid": "92435cb2-d813-4976-b1eb-2063a33aa393",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 5",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "8c55085c-5faf-448a-a887-dfc597818323"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "d1c42c5d-91fa-4dc6-a7d7-4752e89cc7eb",
+              "destination_uuid": null
+            }
+          ]
+        },
+        {
+          "uuid": "a1252d3a-360d-47c9-be32-0b0d8193ef9d",
+          "actions": [
+            {
+              "attachments": [],
+              "text": "You selected option 4",
+              "type": "send_msg",
+              "quick_replies": [],
+              "uuid": "bf909aa8-352f-4f63-bdce-d3c04e212a3b"
+            }
+          ],
+          "exits": [
+            {
+              "uuid": "5467301e-2879-4219-84a6-5c17e234a93e",
+              "destination_uuid": null
+            }
+          ]
+        }
+      ],
+      "_ui": {
+        "nodes": {
+          "275d70a7-27fc-40ef-a24c-fa0a9efd1bff": {
+            "position": {
+              "left": 820,
+              "top": 0
+            },
+            "type": "execute_actions"
+          },
+          "6ba844bd-512e-4bb3-97bd-3e3d16460742": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 700,
+              "top": 240
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "ebcd0efd-2d01-4eac-a3b9-1c852a5a1075": {
+            "position": {
+              "left": 540,
+              "top": 460
+            },
+            "type": "execute_actions"
+          },
+          "74c6882c-5d5f-4e6e-bfa1-94d7d66f9883": {
+            "position": {
+              "left": 1160,
+              "top": 440
+            },
+            "type": "execute_actions"
+          },
+          "ac0bc834-37af-48fa-bafe-11b150dbbda9": {
+            "position": {
+              "left": 660,
+              "top": 580
+            },
+            "type": "execute_actions"
+          },
+          "8b79e3d7-01f8-47b5-a1f2-b017e0b76e8f": {
+            "position": {
+              "left": 760,
+              "top": 680
+            },
+            "type": "execute_actions"
+          },
+          "92435cb2-d813-4976-b1eb-2063a33aa393": {
+            "position": {
+              "left": 1000,
+              "top": 680
+            },
+            "type": "execute_actions"
+          },
+          "a1252d3a-360d-47c9-be32-0b0d8193ef9d": {
+            "position": {
+              "left": 880,
+              "top": 780
+            },
+            "type": "execute_actions"
+          },
+          "4b36f923-41e6-4763-baa5-336ee4df5919": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 1220,
+              "top": 660
+            },
+            "config": {
+              "cases": {}
+            }
+          }
+        }
+      },
+      "revision": 31,
+      "expire_after_minutes": 10080,
+      "metadata": {
+        "revision": 27
+      },
+      "localization": {}
+    },
+    {
+      "_ui": {
+        "nodes": {
+          "0aa78d3b-363a-4e85-a270-c8e7fc20e70b": {
+            "position": {
+              "left": 820,
+              "top": 0
+            },
+            "type": "execute_actions"
+          },
+          "0df28d4a-21f8-4c85-9d4a-42169b8bfc5e": {
+            "type": "wait_for_response",
+            "position": {
+              "left": 700,
+              "top": 240
+            },
+            "config": {
+              "cases": {}
+            }
+          },
+          "074a1932-d428-4dc9-a298-476fd1f5f31c": {
+            "position": {
+              "left": 540,
+              "top": 460
+            },
+            "type": "execute_actions"
+          },
+          "d0ac2027-e44c-42b3-b963-f0d317b8e38f": {
+            "position": {
+              "left": 660,
+              "top": 580
+            },
+            "type": "execute_actions"
+          },
+          "6f8980fc-4f40-4f1a-9f7d-60a40e0d0147": {
+            "position": {
+              "left": 760,
+              "top": 680
+            },
+            "type": "execute_actions"
+          },
+          "fc85d173-2384-4b51-965a-ff24595dcb5f": {
+            "position": {
+              "left": 880,
+              "top": 780
+            },
+            "type": "execute_actions"
+          }
+        }
+      },
+      "expire_after_minutes": 10080,
+      "language": "base",
+      "localization": {},
+      "metadata": {
+        "revision": 6
+      },
+      "name": "TestingCommonArguments2",
+      "nodes": [
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "text": "What is your favourite sport?",
+              "type": "send_msg",
+              "quick_replies": [
+                "football",
+                "tennis",
+                "rugby",
+                "squash"
+              ],
+              "uuid": "9f21354d-cc00-45f3-b6a8-18c5ff3c958b"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": "0df28d4a-21f8-4c85-9d4a-42169b8bfc5e",
+              "uuid": "dc4acd19-357b-4e71-be65-21f73c54cf36"
+            }
+          ],
+          "uuid": "0aa78d3b-363a-4e85-a270-c8e7fc20e70b"
+        },
+        {
+          "uuid": "0df28d4a-21f8-4c85-9d4a-42169b8bfc5e",
+          "actions": [],
+          "router": {
+            "type": "switch",
+            "default_category_uuid": "dcfc56f3-020f-48c8-952b-d0d5971b0757",
+            "cases": [
+              {
+                "arguments": [
+                  "football"
+                ],
+                "type": "has_any_word",
+                "uuid": "f1501ad2-4000-41d2-865d-326980f4e2f6",
+                "category_uuid": "34ed32b0-eae2-44c9-bca0-8315f2088f9c"
+              },
+              {
+                "arguments": [
+                  "tennis"
+                ],
+                "type": "has_any_word",
+                "uuid": "942cb0fb-8cf3-4da7-9a52-dbe38be3547b",
+                "category_uuid": "46910f01-ffd1-4ab4-b71c-ee5936742094"
+              },
+              {
+                "arguments": [
+                  "rugby"
+                ],
+                "type": "has_any_word",
+                "uuid": "04b880b0-f765-406c-9ee4-76a5fec11a39",
+                "category_uuid": "7e2be6a1-027a-49ef-b166-3eefdb015fdc"
+              },
+              {
+                "arguments": [
+                  "squash"
+                ],
+                "type": "has_any_word",
+                "uuid": "1bffe62f-3572-4c45-a260-bf4ffb788a6f",
+                "category_uuid": "14edd6c3-6570-40b9-a904-d2308a17b406"
+              }
+            ],
+            "categories": [
+              {
+                "exit_uuid": "11877ced-8c76-4adf-aebf-f4a573709fd7",
+                "name": "Sport 1",
+                "uuid": "34ed32b0-eae2-44c9-bca0-8315f2088f9c"
+              },
+              {
+                "exit_uuid": "43408524-71c2-48a7-b37a-0583cd911561",
+                "name": "Sport 2",
+                "uuid": "46910f01-ffd1-4ab4-b71c-ee5936742094"
+              },
+              {
+                "exit_uuid": "1a73cbb3-a87c-4cb7-adee-7427d0bc95af",
+                "name": "Sport 3",
+                "uuid": "7e2be6a1-027a-49ef-b166-3eefdb015fdc"
+              },
+              {
+                "exit_uuid": "a2f2b664-1b8f-4041-9570-56ab497dc3a7",
+                "name": "Sport 4",
+                "uuid": "14edd6c3-6570-40b9-a904-d2308a17b406"
+              },
+              {
+                "exit_uuid": "de7f0646-9b7b-4d11-b43e-8ab3bbc9dac1",
+                "name": "Other",
+                "uuid": "dcfc56f3-020f-48c8-952b-d0d5971b0757"
+              }
+            ],
+            "operand": "@input.text",
+            "wait": {
+              "type": "msg"
+            },
+            "result_name": "Result 1"
+          },
+          "exits": [
+            {
+              "destination_uuid": "074a1932-d428-4dc9-a298-476fd1f5f31c",
+              "uuid": "11877ced-8c76-4adf-aebf-f4a573709fd7"
+            },
+            {
+              "destination_uuid": "d0ac2027-e44c-42b3-b963-f0d317b8e38f",
+              "uuid": "43408524-71c2-48a7-b37a-0583cd911561"
+            },
+            {
+              "destination_uuid": "6f8980fc-4f40-4f1a-9f7d-60a40e0d0147",
+              "uuid": "1a73cbb3-a87c-4cb7-adee-7427d0bc95af"
+            },
+            {
+              "destination_uuid": "fc85d173-2384-4b51-965a-ff24595dcb5f",
+              "uuid": "a2f2b664-1b8f-4041-9570-56ab497dc3a7"
+            },
+            {
+              "destination_uuid": "0aa78d3b-363a-4e85-a270-c8e7fc20e70b",
+              "uuid": "de7f0646-9b7b-4d11-b43e-8ab3bbc9dac1"
+            }
+          ]
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 1",
+              "type": "send_msg",
+              "uuid": "f51b59cc-b376-4bb1-89c5-fc751e0d442a"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "c26d17ff-cf41-48e1-ab83-6a66edfb64e5"
+            }
+          ],
+          "uuid": "074a1932-d428-4dc9-a298-476fd1f5f31c"
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 2",
+              "type": "send_msg",
+              "uuid": "5b96dd2a-44b3-44da-96df-1270c91ad0b1"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "3dad5b7d-c706-4b1e-ac2c-c5166b87be84"
+            }
+          ],
+          "uuid": "d0ac2027-e44c-42b3-b963-f0d317b8e38f"
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 3",
+              "type": "send_msg",
+              "uuid": "476b5685-0851-4f46-856b-992aa973af6c"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "c9068b17-103d-4456-b62a-fbf61b025d98"
+            }
+          ],
+          "uuid": "6f8980fc-4f40-4f1a-9f7d-60a40e0d0147"
+        },
+        {
+          "actions": [
+            {
+              "attachments": [],
+              "quick_replies": [],
+              "text": "You selected option 4",
+              "type": "send_msg",
+              "uuid": "08c8da7f-6af0-45b9-a8ce-32093125f203"
+            }
+          ],
+          "exits": [
+            {
+              "destination_uuid": null,
+              "uuid": "819267b2-d0b4-4b4d-a3e2-ef94e11b5bd7"
+            }
+          ],
+          "uuid": "fc85d173-2384-4b51-965a-ff24595dcb5f"
+        }
+      ],
+      "spec_version": "13.1.0",
+      "type": "messaging",
+      "uuid": "d281cb03-99c5-487e-ae92-0dbe74b27da3",
+      "revision": 8
+    }
+  ],
+  "campaigns": [],
+  "triggers": [],
+  "fields": [],
+  "groups": []
+}
