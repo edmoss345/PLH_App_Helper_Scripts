@@ -1,0 +1,42 @@
+Log of changes made using the FixingArguments.js script
+
+Input JSON File: c:\Users\edmun\Code\PLH App Helper Scripts/testingargumentsscript2.json
+
+Total flows in JSON file: 3
+Largest flow has: 9 nodes 
+Smallest flow has: 6 nodes 
+Average nodes per flow: 7
+Total Modified Flows: 2
+Total Modified Nodes: 3
+
+Details of the modified flows/ nodes are summarised below:
+
+    Modified Flow: 1
+    Flow ID: 0a555e23-4a2d-47b0-a07f-a95263a640f2
+    Flow name: TestingCommonArguments3
+    Total nodes: 7
+    Nodes with "has any words" arguments: 1
+    Nodes which have been modified due to duplication in arguments: 1
+
+        Modified Node: 1
+        Node ID: 9f95d8e3-1d22-46a7-bb42-dd3783189269
+        Arguments before modification: The Office,The Simpsons,Friends,Game of Thrones,House of Cards
+        Arguments after modification:  Office,Simpsons,Friends,Game Thrones,House Cards
+
+    Modified Flow: 2
+    Flow ID: a59453fc-cbaf-4667-b0e2-e63bd61fdaab
+    Flow name: TestingCommonArguments1
+    Total nodes: 9
+    Nodes with "has any words" arguments: 2
+    Nodes which have been modified due to duplication in arguments: 2
+
+        Modified Node: 1
+        Node ID: 6ba844bd-512e-4bb3-97bd-3e3d16460742
+        Arguments before modification: chicken pie,chicken curry,beef curry,chicken noodles,BBQ chicken pizza,stir fry
+        Arguments after modification:  pie,,beef,noodles,BBQ pizza,stir fry
+
+        Modified Node: 2
+        Node ID: 4b36f923-41e6-4763-baa5-336ee4df5919
+        Arguments before modification: Chicken,Chicken and vegetable,Tofu,Tofu and vegetable,Vegetable only
+        Arguments after modification:  ,,,,Vegetable only
+
