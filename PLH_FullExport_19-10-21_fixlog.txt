@@ -1,0 +1,13 @@
+Log of changes made using the FixingArguments.js script
+
+Input JSON File: c:\Users\edmun\Code\PLH App Helper Scripts/PLH_FullExport_19-10-21.json
+
+Total flows in JSON file: 298
+Largest flow has: 178 nodes 
+Smallest flow has: 0 nodes 
+Average nodes per flow: 15
+Total Modified Flows: 0
+Total Modified Nodes: 0
+
+Details of the modified flows/ nodes are summarised below:
+

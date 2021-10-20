@@ -8,7 +8,7 @@ const { debug } = require('console');
 var fs = require('fs');
 
 // Location of JSON to be loaded in
-JSONName = 'testingargumentsscript2'
+JSONName = 'PLH_FullExport_19-10-21'
 JSONPath = __dirname + '/' + JSONName + '.json'
 
 // Location and name of modified JSON file and log file
@@ -42,6 +42,7 @@ for (const flow of object.flows) {
         // Check if there is a router in this node if so iterate through the cases
         TotalNodeCount++
         NodeCount++
+            
         try {
             for(const cases of node.router.cases){ 
                 // First check that there is at least one 'has_any_word' argument and if so set 'fixrequired' to true
@@ -62,13 +63,17 @@ for (const flow of object.flows) {
             
             // collect all the arguments together into an array
             const originalargs = []
+            const originalargtypes = []
             for(const cases of node.router.cases){
                 for(const argument of cases.arguments){
-                    originalargs.push(argument)                                               
+                    originalargs.push(argument.trim())                                               
+                }
+                for(const type of cases.type){
+                    originalargtypes.push(type.trim())                                               
                 }
             }
             // Process argument and remove duplicate words
-            const UniqueArguments = CreateUniqueArguments(originalargs)
+            const UniqueArguments = CreateUniqueArguments(originalargs, originalargtypes)
 
             // If the UniqueArguments are different from the original args, we need to insert these back into the JSON object
             if(arrayEquals(UniqueArguments,originalargs) == false){
@@ -127,20 +132,25 @@ fixlog =    'Log of changes made using the FixingArguments.js script' + '\n\n'
 fs.writeFile(outputJSONPath, outputobject, outputFileErrorHandler)
 fs.writeFile(outputfixlogpath, fixlog, outputFileErrorHandler)
 
-function CreateUniqueArguments(arr) {
+function CreateUniqueArguments(originalargs, originalargtypes) {
     var UniqueArguments = []
-    UniqueWords = FindUniqueWords(arr)
+    var UniqueWords = FindUniqueWords(originalargs)
+    let arrayLength = originalargs.length;
 
-    for (const argument of arr){   
-        NewArgument = ""     
-        const SplitArguments = argument.split(" ");
-        for (const argumentword of SplitArguments){
-            if (CountIf(argumentword,UniqueWords) == 1){                
-                NewArgument += argumentword
-                NewArgument += " "
+    for (let i = 0 ; i < arrayLength; i++){
+        if(originalargtypes[i] == "has_any_word"){
+            let NewArgument = ""     
+            const SplitArguments = originalargs[i].split(" ");
+            for (const argumentword of SplitArguments){
+                if (CountIf(argumentword,UniqueWords) == 1){                
+                    NewArgument += argumentword
+                    NewArgument += " "
+                }
             }
-        }
-        UniqueArguments.push(NewArgument.trim())        
+            UniqueArguments.push(NewArgument.trim())
+        } else{
+            UniqueArguments.push(originalargs[i])
+        }                 
     }
 return UniqueArguments
 }
@@ -150,7 +160,8 @@ function FindUniqueWords(arr) {
     var UniqueWords = [];
     for (const argument of arr){
         const SplitArguments = argument.split(" ")
-        for (const argumentword of SplitArguments){
+        let SplitArgumentsUnique = [...new Set(SplitArguments)]
+        for (const argumentword of SplitArgumentsUnique){
             AllWords.push(argumentword)
         }
     }
